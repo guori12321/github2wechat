@@ -6,6 +6,7 @@ from thread import start_new_thread
 
 from server import MyServer
 from wxbot.wxbot import *
+import server
 
 class MyWXBot(WXBot):
     def handle_msg_all(self, msg):
@@ -23,8 +24,7 @@ def main():
     bot.DEBUG = True
     start_new_thread(bot.run, tuple())
 
-    httpd = MyServer()
-    start_new_thread(httpd.run, tuple())
+    server.run()
 
 
 if __name__ == '__main__':

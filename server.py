@@ -33,7 +33,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write("<html><body><h1>%s!</h1></body></html>" % post_data)
         print post_data
 
-def run(server_class=HTTPServer, handler_class=S, port=8888):
+def run(server_class=HTTPServer, handler_class=MyServer, port=8888):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print 'Starting httpd...'
