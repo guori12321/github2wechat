@@ -40,7 +40,7 @@ class MyServer(BaseHTTPRequestHandler):
 def run(bot, server_class=HTTPServer, handler_class=MyServer, port=8888):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
-    httpd.bot = bot
+    handler_class.bot = bot
     print 'Starting httpd...'
     httpd.serve_forever()
 
