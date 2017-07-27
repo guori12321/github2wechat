@@ -22,6 +22,10 @@ class MyWXBot(WXBot):
 def main():
     bot = MyWXBot()
     bot.DEBUG = True
+    from sys import platform
+    # Show the QR code in terminal if Ubuntu
+    if platform == 'linux2':
+        bot.conf['qr'] = 'tty'
     start_new_thread(bot.run, tuple())
 
     server.run()
