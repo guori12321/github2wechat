@@ -5,7 +5,7 @@ import socket
 from thread import start_new_thread
 
 from server import MyServer
-from wxbot.wxbot import *
+from wxBot.wxbot import *
 import server
 
 class MyWXBot(WXBot):
