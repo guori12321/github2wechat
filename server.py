@@ -13,7 +13,7 @@ Send a POST request::
 """
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
-class S(BaseHTTPRequestHandler):
+class MyServer(BaseHTTPRequestHandler):
     def _set_headers(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
@@ -31,6 +31,7 @@ class S(BaseHTTPRequestHandler):
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         self._set_headers()
         self.wfile.write("<html><body><h1>%s!</h1></body></html>" % post_data)
+        print post_data
 
 def run(server_class=HTTPServer, handler_class=S, port=8888):
     server_address = ('', port)

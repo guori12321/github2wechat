@@ -4,6 +4,7 @@
 import socket
 from thread import start_new_thread
 
+from server import MyServer
 from wxbot.wxbot import *
 
 class MyWXBot(WXBot):
@@ -21,6 +22,9 @@ def main():
     bot = MyWXBot()
     bot.DEBUG = True
     start_new_thread(bot.run, tuple())
+
+    httpd = MyServer()
+    start_new_thread(httpd.run, tuple())
 
 
 if __name__ == '__main__':
