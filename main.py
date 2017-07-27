@@ -28,7 +28,7 @@ def main():
         bot.conf['qr'] = 'tty'
     start_new_thread(bot.run, tuple())
 
-    server.run()
+    server.run(bot)
 
 
 if __name__ == '__main__':

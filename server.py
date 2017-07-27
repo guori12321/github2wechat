@@ -1,5 +1,7 @@
-# Reference: https://gist.github.com/bradmontgomery/2219997
+#!/usr/bin/env python
+# coding: utf-8
 
+# Reference: https://gist.github.com/bradmontgomery/2219997
 """
 Very simple HTTP server in python.
 Usage::
@@ -33,9 +35,12 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write("<html><body><h1>%s!</h1></body></html>" % post_data)
         print post_data
 
-def run(server_class=HTTPServer, handler_class=MyServer, port=8888):
+        self.bot.send_msg(u'测试账号', post_data)
+
+def run(bot, server_class=HTTPServer, handler_class=MyServer, port=8888):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
+    httpd.bot = bot
     print 'Starting httpd...'
     httpd.serve_forever()
 
