@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import socket
+from thread import start_new_thread
+
 from wxbot.wxbot import *
 
 class MyWXBot(WXBot):
@@ -17,7 +20,8 @@ class MyWXBot(WXBot):
 def main():
     bot = MyWXBot()
     bot.DEBUG = True
-    bot.run()
+    start_new_thread(bot.run, tuple())
+
 
 if __name__ == '__main__':
     main()
